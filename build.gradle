@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id "io.freefair.lombok" version "8.6"
+}
+
+group = 'com.training'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '21'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Java Persistence API => now called Jakarta, @Entity
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// Rest api calls, @RestController
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// postgreSql jdbc driver
+	implementation 'org.postgresql:postgresql:42.2.27'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
